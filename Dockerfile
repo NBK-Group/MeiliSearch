@@ -22,8 +22,8 @@ RUN     apk add -q --no-cache libgcc tini
 
 COPY    --from=compiler /meilisearch/target/release/meilisearch .
 
-ENV     MEILI_HTTP_ADDR 0.0.0.0:7700
-EXPOSE  7700/tcp
+ENV     MEILI_HTTP_ADDR 0.0.0.0:8080
+EXPOSE  8080/tcp
 
 ENTRYPOINT ["tini", "--"]
-CMD     ./meilisearch
+CMD     ./meilisearch --master-key="8e4213e3-a3bd-4d86-89ce-7466843b13d7"
